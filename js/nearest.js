@@ -5,6 +5,7 @@ function findNearestLoo() {
   }
   navigator.geolocation.getCurrentPosition(pos => {
     const { latitude, longitude } = pos.coords;
+    userLocation = [latitude, longitude];
 
     fetch('geojson/publictoilets_clean.geojson')
       .then(res => res.json())
@@ -23,9 +24,21 @@ function findNearestLoo() {
         if (nearest) {
           const [lon, lat] = nearest.geometry.coordinates;
           map.setView([lat, lon], 16);
+
+          if (nearestLine) map.removeLayer(nearestLine);
+
+          nearestLine = L.polyline([userLocation, [lat, lon]], {
+            color: '#00573F',
+            weight: 3,
+            dashArray: '4'
+          }).addTo(map);
+
+          const distance = (minDist / 1000).toFixed(2);
+          const birdIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; vertical-align: middle;"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>`;
+
           L.popup()
             .setLatLng([lat, lon])
-            .setContent("Nearest toilet found! Check the marker.")
+            .setContent(`Nearest toilet found!<br>${distance} km away, as the tern flies ${birdIcon}`)
             .openOn(map);
         }
       });
