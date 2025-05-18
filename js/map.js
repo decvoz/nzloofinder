@@ -1,10 +1,9 @@
-// js/map.js
 const map = L.map('map').setView([-41, 173], 6);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-fetch('geojson/publictoilets_clean.geojson')
+fetch('geojson/publictoilets.geojson')
   .then(res => res.json())
   .then(data => {
     L.geoJSON(data, {
