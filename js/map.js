@@ -8,7 +8,7 @@ let nearestLine = null;
 
 const markers = L.markerClusterGroup();
 
-fetch('geojson/publictoilets.geojson')
+fetch('geojson/publictoilets_clean.geojson')
   .then(res => res.json())
   .then(data => {
     const toiletLayer = L.geoJSON(data, {
