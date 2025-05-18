@@ -1,4 +1,3 @@
-// js/nearest.js
 function findNearestLoo() {
   if (!navigator.geolocation) {
     alert('Geolocation not supported');
@@ -6,12 +5,8 @@ function findNearestLoo() {
   }
   navigator.geolocation.getCurrentPosition(pos => {
     const { latitude, longitude } = pos.coords;
-    if (latitude < -35 || latitude > -33 || longitude < 166 || longitude > 179) {
-      alert("Try again when you're next in Aotearoa.");
-      return;
-    }
 
-    fetch('geojson/publictoilets.geojson')
+    fetch('geojson/publictoilets_clean.geojson')
       .then(res => res.json())
       .then(data => {
         let minDist = Infinity;
