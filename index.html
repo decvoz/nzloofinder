@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +7,54 @@
   <title>The Call of Nature</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: white;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      color: #00573F;
+    }
+    .poster-container {
+      padding: 2rem;
+    }
+    .poster-img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: 8px solid white;
+    }
+    .button-container {
+      margin-top: 2rem;
+    }
+    .button-container button {
+      background-color: #00573F;
+      color: white;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button-container button:hover {
+      background-color: #00462e;
+    }
+    @media (max-width: 600px) {
+      .poster-img {
+        content: url('toiletinwildmobile.png');
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="landing">
-    <h1>The Call of Nature</h1>
-    <button onclick="location.href='map.html'">Find a Loo</button>
-    <button onclick="location.href='gowild.html'">Go Wild</button>
+  <div class="poster-container">
+    <img src="toiletinwild.png" class="poster-img" alt="Wilderness toilet poster">
+    <div class="button-container">
+      <button onclick="location.href='map.html'">Find a Loo</button>
+      <button onclick="location.href='gowild.html'">Go Wild</button>
+    </div>
   </div>
 </body>
 </html>
