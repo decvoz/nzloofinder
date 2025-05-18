@@ -1,0 +1,37 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Call of Nature</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>The Call of Nature</h1>
+  <button onclick="location.href='map.html'">Find a Loo</button>
+  <button onclick="location.href='gowild.html'">Go Wild</button>
+</body>
+</html>
+
+<!-- map.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Loo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="map"></div>
+  <div id="controls">
+    <button onclick="findNearestLoo()">Find Nearest Loo</button>
+    <button onclick="location.reload()">Explore All Loos</button>
+  </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/nearest.js"></script>
+</body>
+</html>
